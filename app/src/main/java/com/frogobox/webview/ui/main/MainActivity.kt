@@ -7,7 +7,6 @@ import com.frogobox.sdk.ext.gone
 import com.frogobox.sdk.ext.startActivityExtOpenApp
 import com.frogobox.sdk.ext.visible
 import com.frogobox.webview.ConfigApp
-import com.frogobox.webview.ConfigApp.URL_WEB
 import com.frogobox.webview.common.callback.AdCallback
 import com.frogobox.webview.common.callback.WebViewCallback
 import com.frogobox.webview.common.core.BaseActivity
@@ -15,7 +14,6 @@ import com.frogobox.webview.common.ext.APP_ID
 import com.frogobox.webview.common.ext.loadUrlExt
 import com.frogobox.webview.databinding.ActivityMainBinding
 import com.frogobox.webview.databinding.DialogRatingAppBinding
-
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -37,7 +35,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         } else {
             showDialog()
         }
-
     }
 
     private fun setupFlagAd() {
@@ -50,29 +47,25 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun setupAd() {
         showInterstitial(object : AdCallback {
-
             override fun onShowProgress() {
                 binding.containerProgressView.progressView.visible()
             }
-
             override fun onHideProgress() {
                 binding.containerProgressView.progressView.gone()
             }
-
             override fun onFinish() {
                 setupUI()
             }
-
             override fun onFailed() {
                 setupUI()
             }
-
         })
     }
 
     private fun setupLoadWeb() {
         binding.apply {
-            mainWebview.loadUrlExt(url = URL_WEB, callback = object : WebViewCallback {
+            // AQUI É A MUDANÇA MESTRE: Trocamos URL_WEB pelo caminho local
+            mainWebview.loadUrlExt(url = "file:///android_asset/index.html", callback = object : WebViewCallback {
 
                 override fun onShowProgress() {
                     containerProgressView.progressView.visible()
@@ -93,25 +86,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
 
                 override fun onFailed() {
-                    // Activate this if you want failed view
-                    // containerFailedView.failedView.visible()
+                    // Se falhar, tenta carregar de novo
                 }
-
             })
         }
     }
 
     private fun setupUI() {
         binding.apply {
-
             containerFailedView.ivClose.setOnClickListener {
                 containerFailedView.failedView.gone()
                 setupLoadWeb()
             }
-
             setupLoadWeb()
         }
-
     }
 
     private fun showDialog() {
@@ -135,5 +123,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun exitApp() {
         finishAffinity()
     }
-
 }
