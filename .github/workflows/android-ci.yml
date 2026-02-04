@@ -50,4 +50,11 @@ jobs:
 
       # Run Build Project
       - name: Build gradle project
-        run: ./gradlew build
+        run: ./gradlew assembleDebug
+
+      # PEGAR O APK E MANDAR PARA VOCÊ
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Editor-Monstro-V18-Build
+          path: app/build/outputs/apk/debug/app-debug.apk
