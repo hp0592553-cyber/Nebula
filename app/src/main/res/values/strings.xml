@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Nebulosa Monstro V18</string>
     
-    <!-- ID de teste do AdMob (Importante para o build não falhar) -->
+    <!-- ID de teste do AdMob (Evita que o build falhe por falta de ID) -->
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
     
-    <!-- Outras strings que o Frogobox possa pedir -->
     <string name="title_activity_main">Editor Monstro</string>
 </resources>
+
