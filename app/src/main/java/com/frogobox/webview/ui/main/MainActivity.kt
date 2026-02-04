@@ -1,6 +1,8 @@
 package com.frogobox.webview.ui.main
 
 import android.os.Bundle
+import android.webkit.WebSettings
+import android.webkit.WebView
 import androidx.appcompat.app.AlertDialog
 import com.frogobox.coresdk.util.FrogoConstant
 import com.frogobox.sdk.ext.gone
@@ -23,6 +25,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreateExt(savedInstanceState: Bundle?) {
         super.onCreateExt(savedInstanceState)
+        
+        // --- HACK DO RICK: CONFIGURAÇÃO DE ALTA PERFORMANCE ---
+        val webSettings = binding.mainWebview.settings
+        webSettings.javaScriptEnabled = true // Ativa o coração do Monstro
+        webSettings.domStorageEnabled = true // Permite salvar vídeos na memória
+        webSettings.allowFileAccess = true
+        webSettings.allowContentAccess = true
+        webSettings.databaseEnabled = true
+        webSettings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+        
+        // Garante que o fundo seja preto para evitar clarão branco
+        binding.mainWebview.setBackgroundColor(android.graphics.Color.parseColor("#020306"))
+        
         showUMP(this) {
             setupFlagAd()
         }
@@ -47,48 +62,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun setupAd() {
         showInterstitial(object : AdCallback {
-            override fun onShowProgress() {
-                binding.containerProgressView.progressView.visible()
-            }
-            override fun onHideProgress() {
-                binding.containerProgressView.progressView.gone()
-            }
-            override fun onFinish() {
-                setupUI()
-            }
-            override fun onFailed() {
-                setupUI()
-            }
+            override fun onShowProgress() { binding.containerProgressView.progressView.visible() }
+            override fun onHideProgress() { binding.containerProgressView.progressView.gone() }
+            override fun onFinish() { setupUI() }
+            override fun onFailed() { setupUI() }
         })
     }
 
     private fun setupLoadWeb() {
         binding.apply {
-            // AQUI É A MUDANÇA MESTRE: Trocamos URL_WEB pelo caminho local
-            mainWebview.loadUrlExt(url = "file:///android_asset/index.html", callback = object : WebViewCallback {
-
-                override fun onShowProgress() {
-                    containerProgressView.progressView.visible()
-                }
-
-                override fun onHideProgress() {
-                    containerProgressView.progressView.gone()
-                }
-
-                override fun onFinish() {
-                    containerFailedView.failedView.gone()
-                    if (ConfigApp.Flag.IS_USING_AD_BANNER) {
-                        adsView.adsPhoneTabSpecialSmartBanner.visible()
-                        showAdBanner(adsView.adsPhoneTabSpecialSmartBanner)
-                    } else {
-                        adsView.adsPhoneTabSpecialSmartBanner.gone()
-                    }
-                }
-
-                override fun onFailed() {
-                    // Se falhar, tenta carregar de novo
-                }
-            })
+            // CARGA DIRETA DO TEU INDEX NA PASTA ASSETS
+            mainWebview.loadUrl("file:///android_asset/index.html")
+            
+            // Callback para animações de carregamento
+            containerProgressView.progressView.gone()
+            containerFailedView.failedView.gone()
         }
     }
 
@@ -106,21 +94,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val dialogBinding = DialogRatingAppBinding.inflate(layoutInflater, null, false)
         val dialogBuilder = AlertDialog.Builder(this)
         dialogBuilder.setView(dialogBinding.root)
-
         dialogBinding.apply {
             btnRate.setOnClickListener { rateApp() }
             btnExit.setOnClickListener { exitApp() }
         }
-
-        val alertDialog = dialogBuilder.create()
-        alertDialog.show()
+        dialogBuilder.create().show()
     }
 
     private fun rateApp() {
         startActivityExtOpenApp("${FrogoConstant.Url.BASE_PLAY_STORE_URL}${APP_ID}")
     }
 
-    private fun exitApp() {
-        finishAffinity()
-    }
+    private fun exitApp() { finishAffinity() }
 }
+
