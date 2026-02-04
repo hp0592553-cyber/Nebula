@@ -1,19 +1,19 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
-        maven("https://jitpack.io")
+        gradlePluginPortal()
     }
 }
-
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    // ESSA LINHA ABAIXO É O SEGREDO: PREFER_SETTINGS libera o build!
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
         mavenCentral()
-        maven("https://jitpack.io")
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
+rootProject.name = "Nebulosa"
 include(":app")
