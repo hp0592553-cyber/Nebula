@@ -38,21 +38,24 @@ android {
     }
 }
 
+// 1. ADICIONE ISSO AQUI (O Mapa das Peças)
+repositories {
+    google()
+    mavenCentral()
+    maven { url = uri("https://jitpack.io") }
+}
+
 dependencies {
-    // Bibliotecas Base do Android
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     
-    // O CORAÇÃO DO SAPO (Frogobox SDKs)
-    // Se o build falhar aqui, tente mudar para 2.0.9 ou 2.0.8
-    implementation("com.github.frogobox:frogo-sdk:2.1.0")
-    implementation("com.github.frogobox:frogo-admob:2.0.5")
+    // 2. MUDE AS VERSÕES AQUI (Para versões mais estáveis no JitPack)
+    implementation("com.github.frogobox:frogo-sdk:2.0.9")
+    implementation("com.github.frogobox:frogo-admob:2.0.4")
     
-    // Testes
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
-
