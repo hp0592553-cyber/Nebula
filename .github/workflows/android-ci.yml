@@ -2,15 +2,13 @@ name: Android CI
 
 env:
   main_project_module: app
-  playstore_name: Frogobox ID
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ master ]
+    branches: [ main, master ]
   workflow_dispatch:
-    branches: [ master ]
 
 jobs:
   build:
@@ -30,11 +28,11 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build gradle project
-        run: ./gradlew assembleDebug
+        # O comando 'clean' apaga erros de cache de XMLs antigos
+        run: ./gradlew clean assembleDebug
 
-      # BUSCA UNIVERSAL: Procura qualquer .apk dentro das pastas de build
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Editor-Monstro-V18-Build
+          name: Monstro-V18-Final
           path: "**/build/outputs/apk/debug/*.apk"
