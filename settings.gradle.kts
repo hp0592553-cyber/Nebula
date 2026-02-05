@@ -7,7 +7,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    // PREFER_SETTINGS: A chave mestre que libera o JitPack!
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
