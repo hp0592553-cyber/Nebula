@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorButtonText">#FFFFFF</color>
+    <string name="app_name">Editor Monstro</string>
+    <string name="activity_exit_tv_exit_title">Sair do App?</string>
+    <string name="activity_exit_btn_rate">Avaliar</string>
 </resources>
