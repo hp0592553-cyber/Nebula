@@ -13,7 +13,6 @@ android {
         targetSdk = 34
         versionCode = 18
         versionName = "18.0.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,7 +37,7 @@ android {
     }
 }
 
-// 1. ADICIONE ISSO AQUI (O Mapa das Peças)
+// Repositórios locais para o robô não se perder
 repositories {
     google()
     mavenCentral()
@@ -51,9 +50,9 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     
-    // 2. MUDE AS VERSÕES AQUI (Para versões mais estáveis no JitPack)
-    implementation("com.github.frogobox:frogo-sdk:2.0.9")
-    implementation("com.github.frogobox:frogo-admob:2.0.4")
+    // VERSÕES ESTÁVEIS (O Downgrade que você pesquisou!)
+    implementation("com.github.frogobox:frogo-sdk:2.0.8")
+    implementation("com.github.frogobox:frogo-admob:2.0.1")
     
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
