@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissões de Internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Internet é a única coisa que WebView precisa -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-    <!-- Permissões de Vídeo e Galeria (O que você queria!) -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:node="replace"/>
-
-    <!-- Aplicação Principal (Sem .WebApp para não dar Crash) -->
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -19,23 +12,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/ThemeSdk.HideStatusBarUI"
-        android:requestLegacyExternalStorage="true"
-        tools:targetApi="tiramisu">
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar">
 
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"
             android:configChanges="orientation|screenSize|keyboardHidden|screenLayout">
+
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
 
+        <!-- Só mantenha isso se REALMENTE usa AdMob -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_app_id" />
-    </application>
-</manifest>
+            android:value="@string/admob_app_id"/>
 
+    </application>
+
+</manifest>
