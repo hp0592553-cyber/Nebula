@@ -5,8 +5,9 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
-    // ESSA LINHA ABAIXO É O SEGREDO: PREFER_SETTINGS libera o build!
+    // PREFER_SETTINGS: A chave mestre que libera o JitPack!
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
         google()
