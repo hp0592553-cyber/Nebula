@@ -2,12 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissões de Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Permissões de Vídeo e Galeria (O que você queria!) -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:node="replace"/>
 
+    <!-- Aplicação Principal (Sem .WebApp para não dar Crash) -->
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="true"
@@ -34,3 +38,4 @@
             android:value="@string/admob_app_id" />
     </application>
 </manifest>
+
