@@ -17,7 +17,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        release {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -44,14 +44,16 @@ kotlin {
 
 dependencies {
 
+    // ANDROID BASE (estável)
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    // SDK moderno do Frogobox (sem frogo-admob morto)
-    implementation(libs.frogo.android)
+    // WEBVIEW NATIVO DO GOOGLE (melhor que Frogobox)
+    implementation("androidx.webkit:webkit:1.9.0")
 
+    // TESTES
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
