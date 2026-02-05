@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    
-    <!-- TEMA DE NOITE: Onde o erro 401 de recursos acontece! -->
+
+    <!-- TEMA DE NOITE: Onde o build #34 morreu! -->
     <style name="ThemeSdk" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/purple_200</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -11,10 +11,9 @@
 
     <style name="ThemeSdk.HideStatusBarUI" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <item name="windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
         <item name="android:statusBarColor">#FF000000</item>
     </style>
+
 </resources>
