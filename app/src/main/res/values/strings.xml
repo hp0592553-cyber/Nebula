@@ -1,9 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Nebulosa Monstro V18</string>
-    
-    <!-- ID de teste do AdMob (Evita que o build falhe por falta de ID) -->
+    <string name="app_name">Monstro V18</string>
+    <string name="title_activity_main">Editor Pro</string>
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
-    
-    <string name="title_activity_main">Editor Monstro</string>
-</resources>
 
+    <string name="activity_exit_btn_exit">Sair</string>
+    <string name="activity_exit_btn_cancel">Cancelar</string>
+    <string name="activity_exit_title">Deseja realmente sair?</string>
+    <string name="no_internet">Sem conexão com a internet</string>
+    <string name="loading">Carregando...</string>
+</resources>
