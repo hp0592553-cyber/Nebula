@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Editor Monstro</string>
-    <string name="activity_exit_tv_exit_title">Sair do App?</string>
-    <string name="activity_exit_btn_rate">Avaliar</string>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
 </resources>
