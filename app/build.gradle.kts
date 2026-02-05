@@ -37,7 +37,6 @@ android {
     }
 }
 
-// Repositórios locais para o robô não se perder
 repositories {
     google()
     mavenCentral()
@@ -50,9 +49,9 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     
-    // VERSÕES ESTÁVEIS (O Downgrade que você pesquisou!)
-    implementation("com.github.frogobox:frogo-sdk:2.0.8")
-    implementation("com.github.frogobox:frogo-admob:2.0.1")
+    // VERSÕES REVISADAS PARA MATAR O ERRO 401
+    implementation("com.github.frogobox:frogo-sdk:2.0.9")
+    implementation("com.github.frogobox:frogo-admob:2.0.4")
     
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
