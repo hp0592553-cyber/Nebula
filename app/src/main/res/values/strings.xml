@@ -4,9 +4,11 @@
     <string name="title_activity_main">Editor Pro</string>
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
 
+    <string name="activity_exit_tv_exit_title">Deseja realmente sair?</string>
+    <string name="activity_exit_btn_rate">Avaliar</string>
     <string name="activity_exit_btn_exit">Sair</string>
     <string name="activity_exit_btn_cancel">Cancelar</string>
-    <string name="activity_exit_title">Deseja realmente sair?</string>
+    
     <string name="no_internet">Sem conexão com a internet</string>
     <string name="loading">Carregando...</string>
 </resources>
