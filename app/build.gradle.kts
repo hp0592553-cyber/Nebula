@@ -6,6 +6,9 @@ plugins {
 android {
     namespace = "com.frogobox.webview"
     compileSdk = 34
+    
+    // LINHA OBRIGATÓRIA: Força o Codespaces a usar a versão correta
+    buildToolsVersion = "34.0.0"
 
     defaultConfig {
         applicationId = "com.frogobox.webview"
@@ -43,14 +46,13 @@ kotlin {
 }
 
 dependencies {
-
-    // ANDROID BASE (estável)
+    // ANDROID BASE
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    // WEBVIEW NATIVO DO GOOGLE (melhor que Frogobox)
+    // WEBVIEW NATIVO (O que faz o Nebula funcionar)
     implementation("androidx.webkit:webkit:1.9.0")
 
     // TESTES
